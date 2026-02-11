@@ -1,0 +1,526 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A1000001 /* DietAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001; };
+		A1000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002; };
+		A1000003 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000003; };
+		A1000004 /* DietPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004; };
+		A1000005 /* WeightLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005; };
+		A1000006 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000006; };
+		A1000007 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000007; };
+		A1000008 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000008; };
+		A1000009 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009; };
+		A100000A /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000A; };
+		A100000B /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000B; };
+		A100000C /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000C; };
+		A100000D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000D; };
+		A100000E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000E; };
+		A100000F /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000F; };
+		A1000010 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000010; };
+		A1000011 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000011; };
+		A1000012 /* WeightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000012; };
+		A1000013 /* WeightLogSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000013; };
+		A1000014 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014; };
+		A1000015 /* ConversationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015; };
+		A1000016 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000016; };
+		A1000017 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000017; };
+		A1000018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000018; };
+		A1000019 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000019; };
+		A100001A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001A; };
+		A100001B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001B; };
+		A100001C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001C; };
+		A100001D /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001D; };
+		A100001E /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001E; };
+		A100001F /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001F; };
+		A1000020 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000020; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B1000001 /* DietAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietAppApp.swift; sourceTree = "<group>"; };
+		B1000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B1000003 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B1000004 /* DietPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietPlan.swift; sourceTree = "<group>"; };
+		B1000005 /* WeightLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLog.swift; sourceTree = "<group>"; };
+		B1000006 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B1000007 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		B1000008 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B1000009 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
+		B100000A /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		B100000B /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
+		B100000C /* WebSocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketService.swift; sourceTree = "<group>"; };
+		B100000D /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		B100000E /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		B100000F /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		B1000010 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		B1000011 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		B1000012 /* WeightChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightChartView.swift; sourceTree = "<group>"; };
+		B1000013 /* WeightLogSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLogSheet.swift; sourceTree = "<group>"; };
+		B1000014 /* MealListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListView.swift; sourceTree = "<group>"; };
+		B1000015 /* ConversationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsView.swift; sourceTree = "<group>"; };
+		B1000016 /* ChatDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailView.swift; sourceTree = "<group>"; };
+		B1000017 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		B1000018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1000019 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		B100001A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B100001B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		B100001C /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		B100001D /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		B100001E /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		B100001F /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		B1000020 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		C1000001 /* DietApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DietApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E1000001 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				E1000002 /* DietApp */,
+				E100000F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E1000002 /* DietApp */ = {
+			isa = PBXGroup;
+			children = (
+				B1000001 /* DietAppApp.swift */,
+				B100001A /* AppDelegate.swift */,
+				B1000002 /* ContentView.swift */,
+				E1000003 /* Models */,
+				E1000004 /* Services */,
+				E1000005 /* ViewModels */,
+				E1000006 /* Views */,
+				B1000018 /* Assets.xcassets */,
+				E100000E /* Preview Content */,
+			);
+			path = DietApp;
+			sourceTree = "<group>";
+		};
+		E1000003 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1000003 /* User.swift */,
+				B1000004 /* DietPlan.swift */,
+				B1000005 /* WeightLog.swift */,
+				B1000006 /* Message.swift */,
+				B100001C /* Notification.swift */,
+				B100001F /* Appointment.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E1000004 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B1000007 /* APIClient.swift */,
+				B1000008 /* AuthService.swift */,
+				B1000009 /* KeychainHelper.swift */,
+				B100000A /* ProfileService.swift */,
+				B100000B /* MessageService.swift */,
+				B100000C /* WebSocketService.swift */,
+				B100001B /* NotificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E1000005 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B100000D /* AuthViewModel.swift */,
+				B100000E /* ProfileViewModel.swift */,
+				B100000F /* ChatViewModel.swift */,
+				B100001D /* NotificationsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E1000006 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1000017 /* MainTabView.swift */,
+				E1000007 /* Auth */,
+				E1000008 /* Profile */,
+				E1000009 /* Chat */,
+				E100000A /* Notifications */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E1000007 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B1000010 /* LoginView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		E1000008 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B1000011 /* ProfileView.swift */,
+				B1000012 /* WeightChartView.swift */,
+				B1000013 /* WeightLogSheet.swift */,
+				B1000014 /* MealListView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		E1000009 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				B1000015 /* ConversationsView.swift */,
+				B1000016 /* ChatDetailView.swift */,
+				B1000020 /* CameraPicker.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		E100000A /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				B100001E /* NotificationsView.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		E100000E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				B1000019 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E100000F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C1000001 /* DietApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F1000001 /* DietApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2000003 /* Build configuration list for PBXNativeTarget "DietApp" */;
+			buildPhases = (
+				F1000002 /* Sources */,
+				D1000001 /* Frameworks */,
+				F1000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DietApp;
+			productName = DietApp;
+			productReference = C1000001 /* DietApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1000004 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					F1000001 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = F2000001 /* Build configuration list for PBXProject "DietApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = tr;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				tr,
+				Base,
+			);
+			mainGroup = E1000001;
+			productRefGroup = E100000F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1000001 /* DietApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F1000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000018 /* Assets.xcassets in Resources */,
+				A1000019 /* Preview Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F1000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1000001 /* DietAppApp.swift in Sources */,
+				A1000002 /* ContentView.swift in Sources */,
+				A1000003 /* User.swift in Sources */,
+				A1000004 /* DietPlan.swift in Sources */,
+				A1000005 /* WeightLog.swift in Sources */,
+				A1000006 /* Message.swift in Sources */,
+				A1000007 /* APIClient.swift in Sources */,
+				A1000008 /* AuthService.swift in Sources */,
+				A1000009 /* KeychainHelper.swift in Sources */,
+				A100000A /* ProfileService.swift in Sources */,
+				A100000B /* MessageService.swift in Sources */,
+				A100000C /* WebSocketService.swift in Sources */,
+				A100000D /* AuthViewModel.swift in Sources */,
+				A100000E /* ProfileViewModel.swift in Sources */,
+				A100000F /* ChatViewModel.swift in Sources */,
+				A1000010 /* LoginView.swift in Sources */,
+				A1000011 /* ProfileView.swift in Sources */,
+				A1000012 /* WeightChartView.swift in Sources */,
+				A1000013 /* WeightLogSheet.swift in Sources */,
+				A1000014 /* MealListView.swift in Sources */,
+				A1000015 /* ConversationsView.swift in Sources */,
+				A1000016 /* ChatDetailView.swift in Sources */,
+				A1000017 /* MainTabView.swift in Sources */,
+				A100001A /* AppDelegate.swift in Sources */,
+				A100001B /* NotificationService.swift in Sources */,
+				A100001C /* Notification.swift in Sources */,
+				A100001D /* NotificationsViewModel.swift in Sources */,
+				A100001E /* NotificationsView.swift in Sources */,
+				A100001F /* Appointment.swift in Sources */,
+				A1000020 /* CameraPicker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F2000010 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F2000011 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2000012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DietApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DietApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DietApp;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dietapp.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2000013 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"DietApp/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DietApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DietApp;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dietapp.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F2000001 /* Build configuration list for PBXProject "DietApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2000010 /* Debug */,
+				F2000011 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2000003 /* Build configuration list for PBXNativeTarget "DietApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2000012 /* Debug */,
+				F2000013 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1000004 /* Project object */;
+}

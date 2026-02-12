@@ -11,6 +11,13 @@
 	<array>
 		<string>com.dietapp.ios.notificationCheck</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageName</key>
+		<string>LaunchIcon</string>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Sohbette fotoğraf çekmek için kamera erişimi gereklidir.</string>
 	<key>NSPhotoLibraryUsageDescription</key>

@@ -12,6 +12,11 @@ final class ProfileViewModel {
         weightLogs.first?.weight
     }
 
+    var hasLoggedToday: Bool {
+        guard let latest = weightLogs.first, let date = latest.loggedDate else { return false }
+        return Calendar.current.isDateInToday(date)
+    }
+
     var activePlan: DietPlan? {
         dietPlans.first { $0.isActive }
     }

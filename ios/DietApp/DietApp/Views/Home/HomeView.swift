@@ -58,12 +58,11 @@ struct HomeView: View {
         }
     }
 
+    @ViewBuilder
     private var weightEntryButton: some View {
-        Button {
-            showWeightSheet = true
-        } label: {
+        if viewModel.hasLoggedToday {
             HStack(spacing: 12) {
-                Image(systemName: "scalemass.fill")
+                Image(systemName: "checkmark.circle.fill")
                     .font(.title3)
                     .foregroundStyle(.white)
                     .frame(width: 40, height: 40)
@@ -71,11 +70,11 @@ struct HomeView: View {
                     .clipShape(Circle())
 
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("Kilo Gir")
+                    Text("Bugünkü kilo girildi")
                         .font(.headline)
                         .foregroundStyle(.primary)
                     if let weight = viewModel.currentWeight {
-                        Text("Güncel: \(weight, specifier: "%.1f") kg")
+                        Text("\(weight, specifier: "%.1f") kg")
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -83,16 +82,50 @@ struct HomeView: View {
 
                 Spacer()
 
-                Image(systemName: "plus.circle.fill")
-                    .font(.title2)
+                Image(systemName: "checkmark")
+                    .font(.body.bold())
                     .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
             }
             .padding()
             .background(Color(.systemBackground))
             .clipShape(RoundedRectangle(cornerRadius: 16))
             .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
+        } else {
+            Button {
+                showWeightSheet = true
+            } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: "scalemass.fill")
+                        .font(.title3)
+                        .foregroundStyle(.white)
+                        .frame(width: 40, height: 40)
+                        .background(Color(red: 0.2, green: 0.7, blue: 0.5))
+                        .clipShape(Circle())
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Kilo Gir")
+                            .font(.headline)
+                            .foregroundStyle(.primary)
+                        if let weight = viewModel.currentWeight {
+                            Text("Güncel: \(weight, specifier: "%.1f") kg")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+
+                    Spacer()
+
+                    Image(systemName: "plus.circle.fill")
+                        .font(.title2)
+                        .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                }
+                .padding()
+                .background(Color(.systemBackground))
+                .clipShape(RoundedRectangle(cornerRadius: 16))
+                .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
+            }
+            .buttonStyle(.plain)
         }
-        .buttonStyle(.plain)
     }
 
     private var upcomingAppointmentsCard: some View {

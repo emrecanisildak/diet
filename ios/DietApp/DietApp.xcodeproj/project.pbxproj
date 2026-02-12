@@ -7,40 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A1000001 /* DietAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001; };
-		A1000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002; };
-		A1000003 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000003; };
-		A1000004 /* DietPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004; };
-		A1000005 /* WeightLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005; };
-		A1000006 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000006; };
-		A1000007 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000007; };
-		A1000008 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000008; };
-		A1000009 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009; };
-		A100000A /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000A; };
-		A100000B /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000B; };
-		A100000C /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000C; };
-		A100000D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000D; };
-		A100000E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000E; };
-		A100000F /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000F; };
-		A1000010 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000010; };
-		A1000011 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000011; };
-		A1000012 /* WeightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000012; };
-		A1000013 /* WeightLogSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000013; };
-		A1000014 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014; };
-		A1000015 /* ConversationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015; };
-		A1000016 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000016; };
-		A1000017 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000017; };
-		A1000018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000018; };
-		A1000019 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000019; };
-		A100001A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001A; };
-		A100001B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001B; };
-		A100001C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001C; };
-		A100001D /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001D; };
-		A100001E /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001E; };
-		A100001F /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001F; };
-		A1000020 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000020; };
-		A1000021 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000021; };
-		A1000022 /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000022; };
+		A1000001 /* DietAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000001 /* DietAppApp.swift */; };
+		A1000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000002 /* ContentView.swift */; };
+		A1000003 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000003 /* User.swift */; };
+		A1000004 /* DietPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000004 /* DietPlan.swift */; };
+		A1000005 /* WeightLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000005 /* WeightLog.swift */; };
+		A1000006 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000006 /* Message.swift */; };
+		A1000007 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000007 /* APIClient.swift */; };
+		A1000008 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000008 /* AuthService.swift */; };
+		A1000009 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000009 /* KeychainHelper.swift */; };
+		A100000A /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000A /* ProfileService.swift */; };
+		A100000B /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000B /* MessageService.swift */; };
+		A100000C /* WebSocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000C /* WebSocketService.swift */; };
+		A100000D /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000D /* AuthViewModel.swift */; };
+		A100000E /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000E /* ProfileViewModel.swift */; };
+		A100000F /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100000F /* ChatViewModel.swift */; };
+		A1000010 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000010 /* LoginView.swift */; };
+		A1000011 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000011 /* ProfileView.swift */; };
+		A1000012 /* WeightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000012 /* WeightChartView.swift */; };
+		A1000013 /* WeightLogSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000013 /* WeightLogSheet.swift */; };
+		A1000014 /* MealListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000014 /* MealListView.swift */; };
+		A1000015 /* ConversationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000015 /* ConversationsView.swift */; };
+		A1000016 /* ChatDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000016 /* ChatDetailView.swift */; };
+		A1000017 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000017 /* MainTabView.swift */; };
+		A1000018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000018 /* Assets.xcassets */; };
+		A1000019 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1000019 /* Preview Assets.xcassets */; };
+		A100001A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001A /* AppDelegate.swift */; };
+		A100001B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001B /* NotificationService.swift */; };
+		A100001C /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001C /* Notification.swift */; };
+		A100001D /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001D /* NotificationsViewModel.swift */; };
+		A100001E /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001E /* NotificationsView.swift */; };
+		A100001F /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001F /* Appointment.swift */; };
+		A1000020 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000020 /* CameraPicker.swift */; };
+		A1000021 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000021 /* HomeView.swift */; };
+		A1000022 /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000022 /* ProfileDetailView.swift */; };
+		A1000023 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000023 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		B1000020 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
 		B1000021 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B1000022 /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
+		B1000023 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C1000001 /* DietApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DietApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,7 +94,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E1000001 /* Root */ = {
+		E1000001 = {
 			isa = PBXGroup;
 			children = (
 				E1000002 /* DietApp */,
@@ -106,6 +108,7 @@
 				B1000001 /* DietAppApp.swift */,
 				B100001A /* AppDelegate.swift */,
 				B1000002 /* ContentView.swift */,
+				B1000023 /* Theme.swift */,
 				E1000003 /* Models */,
 				E1000004 /* Services */,
 				E1000005 /* ViewModels */,
@@ -257,7 +260,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 2610;
 				TargetAttributes = {
 					F1000001 = {
 						CreatedOnToolsVersion = 15.4;
@@ -332,6 +335,7 @@
 				A1000020 /* CameraPicker.swift in Sources */,
 				A1000021 /* HomeView.swift in Sources */,
 				A1000022 /* ProfileDetailView.swift in Sources */,
+				A1000023 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +347,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -395,6 +400,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -405,6 +411,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -450,6 +457,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};

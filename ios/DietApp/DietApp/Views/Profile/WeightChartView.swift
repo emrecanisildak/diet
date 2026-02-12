@@ -19,6 +19,7 @@ struct WeightChartView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Kilo Takibi")
                 .font(.headline)
+                .foregroundStyle(.white)
 
             if chartData.count >= 2 {
                 Chart(chartData, id: \.date) { item in
@@ -27,13 +28,13 @@ struct WeightChartView: View {
                         y: .value("Kilo", item.weight)
                     )
                     .interpolationMethod(.catmullRom)
-                    .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                    .foregroundStyle(.white)
 
                     PointMark(
                         x: .value("Tarih", item.date),
                         y: .value("Kilo", item.weight)
                     )
-                    .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                    .foregroundStyle(AppTheme.accent)
 
                     AreaMark(
                         x: .value("Tarih", item.date),
@@ -42,8 +43,8 @@ struct WeightChartView: View {
                     .foregroundStyle(
                         LinearGradient(
                             colors: [
-                                Color(red: 0.2, green: 0.7, blue: 0.5).opacity(0.3),
-                                Color(red: 0.2, green: 0.7, blue: 0.5).opacity(0.0)
+                                AppTheme.accent.opacity(0.3),
+                                AppTheme.accent.opacity(0.0)
                             ],
                             startPoint: .top,
                             endPoint: .bottom
@@ -56,15 +57,19 @@ struct WeightChartView: View {
                             if let kg = value.as(Double.self) {
                                 Text("\(kg, specifier: "%.1f") kg")
                                     .font(.caption2)
+                                    .foregroundStyle(.white.opacity(0.7))
                             }
                         }
-                        AxisGridLine()
+                        AxisGridLine(stroke: StrokeStyle(lineWidth: 0.5))
+                            .foregroundStyle(.white.opacity(0.15))
                     }
                 }
                 .chartXAxis {
                     AxisMarks(values: .stride(by: .day, count: 7)) { value in
                         AxisValueLabel(format: .dateTime.day().month(.abbreviated))
-                        AxisGridLine()
+                            .foregroundStyle(.white.opacity(0.7))
+                        AxisGridLine(stroke: StrokeStyle(lineWidth: 0.5))
+                            .foregroundStyle(.white.opacity(0.15))
                     }
                 }
                 .frame(height: 200)
@@ -78,8 +83,6 @@ struct WeightChartView: View {
             }
         }
         .padding()
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
+        .glassCard()
     }
 }

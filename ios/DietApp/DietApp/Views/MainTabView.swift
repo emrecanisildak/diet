@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct MainTabView: View {
     let user: User
@@ -6,6 +7,34 @@ struct MainTabView: View {
     @State private var unreadMessageCount = 0
     @State private var pollTimer: Timer?
     @State private var selectedTab = 0
+
+    init(user: User, onLogout: @escaping () -> Void) {
+        self.user = user
+        self.onLogout = onLogout
+
+        // Global tab bar appearance
+        let tabAppearance = UITabBarAppearance()
+        tabAppearance.configureWithTransparentBackground()
+        tabAppearance.backgroundColor = UIColor(white: 1, alpha: 0.05)
+        let normalAttrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.5)]
+        let selectedAttrs: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(AppTheme.accent)]
+        tabAppearance.stackedLayoutAppearance.normal.iconColor = .white.withAlphaComponent(0.5)
+        tabAppearance.stackedLayoutAppearance.normal.titleTextAttributes = normalAttrs
+        tabAppearance.stackedLayoutAppearance.selected.iconColor = UIColor(AppTheme.accent)
+        tabAppearance.stackedLayoutAppearance.selected.titleTextAttributes = selectedAttrs
+        UITabBar.appearance().standardAppearance = tabAppearance
+        UITabBar.appearance().scrollEdgeAppearance = tabAppearance
+
+        // Global navigation bar appearance
+        let navAppearance = UINavigationBarAppearance()
+        navAppearance.configureWithTransparentBackground()
+        navAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().standardAppearance = navAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navAppearance
+        UINavigationBar.appearance().compactAppearance = navAppearance
+        UINavigationBar.appearance().tintColor = .white
+    }
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -22,7 +51,7 @@ struct MainTabView: View {
                 .tag(1)
                 .badge(unreadMessageCount)
         }
-        .tint(Color(red: 0.2, green: 0.7, blue: 0.5))
+        .tint(AppTheme.accent)
         .task {
             await fetchUnreadCount()
         }

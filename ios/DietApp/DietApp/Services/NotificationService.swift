@@ -90,7 +90,7 @@ class NotificationService {
 
     @MainActor
     private func updateBadge(count: Int) {
-        UIApplication.shared.applicationIconBadgeNumber = count
+        UNUserNotificationCenter.current().setBadgeCount(count, withCompletionHandler: { _ in })
     }
 
     // MARK: - Seen tracking
@@ -104,3 +104,4 @@ class NotificationService {
         UserDefaults.standard.removeObject(forKey: seenKey)
     }
 }
+

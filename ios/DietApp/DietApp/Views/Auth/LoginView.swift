@@ -7,12 +7,8 @@ struct LoginView: View {
 
     var body: some View {
         ZStack {
-            // Gradient arka plan
             LinearGradient(
-                colors: [
-                    Color(red: 0.2, green: 0.7, blue: 0.5),
-                    Color(red: 0.1, green: 0.5, blue: 0.7)
-                ],
+                colors: [AppTheme.accent, AppTheme.accentDark],
                 startPoint: animateGradient ? .topLeading : .bottomLeading,
                 endPoint: animateGradient ? .bottomTrailing : .topTrailing
             )
@@ -26,7 +22,6 @@ struct LoginView: View {
             VStack(spacing: 32) {
                 Spacer()
 
-                // Logo / Başlık
                 VStack(spacing: 8) {
                     Image(systemName: "leaf.fill")
                         .font(.system(size: 60))
@@ -41,7 +36,6 @@ struct LoginView: View {
                         .foregroundStyle(.white.opacity(0.8))
                 }
 
-                // Form
                 VStack(spacing: 16) {
                     HStack {
                         Image(systemName: "envelope.fill")
@@ -72,7 +66,6 @@ struct LoginView: View {
                 }
                 .padding(.horizontal, 32)
 
-                // Hata mesajı
                 if let error = viewModel.errorMessage {
                     Text(error)
                         .font(.footnote)
@@ -81,14 +74,13 @@ struct LoginView: View {
                         .multilineTextAlignment(.center)
                 }
 
-                // Giriş butonu
                 Button {
                     Task { await viewModel.login() }
                 } label: {
                     Group {
                         if viewModel.isLoading {
                             ProgressView()
-                                .tint(.green)
+                                .tint(AppTheme.accent)
                         } else {
                             Text("Giriş Yap")
                                 .font(.headline)

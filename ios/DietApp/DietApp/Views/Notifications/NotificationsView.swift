@@ -4,10 +4,14 @@ struct NotificationsView: View {
     @State private var viewModel = NotificationsViewModel()
 
     var body: some View {
-        NavigationStack {
+        ZStack {
+            AppTheme.backgroundGradient.ignoresSafeArea()
+
             Group {
                 if viewModel.isLoading && viewModel.notifications.isEmpty {
                     ProgressView("Yükleniyor...")
+                        .tint(.white)
+                        .foregroundStyle(.white)
                 } else if viewModel.notifications.isEmpty {
                     ContentUnavailableView(
                         "Bildirim Yok",
@@ -15,28 +19,34 @@ struct NotificationsView: View {
                         description: Text("Henüz bir bildiriminiz bulunmuyor")
                     )
                 } else {
-                    List(viewModel.notifications) { notification in
-                        NotificationRow(notification: notification)
-                            .onTapGesture {
-                                if !notification.isRead {
-                                    Task {
-                                        await viewModel.markAsRead(notification.id)
+                    ScrollView {
+                        LazyVStack(spacing: 12) {
+                            ForEach(viewModel.notifications) { notification in
+                                NotificationRow(notification: notification)
+                                    .padding(.horizontal)
+                                    .onTapGesture {
+                                        if !notification.isRead {
+                                            Task {
+                                                await viewModel.markAsRead(notification.id)
+                                            }
+                                        }
                                     }
-                                }
                             }
+                        }
+                        .padding(.vertical)
                     }
-                    .listStyle(.plain)
                 }
             }
-            .navigationTitle("Bildirimler")
-            .refreshable {
-                await viewModel.loadNotifications()
-            }
-            .task {
-                await viewModel.loadNotifications()
-                if viewModel.unreadCount > 0 {
-                    await viewModel.markAllAsRead()
-                }
+        }
+        .navigationTitle("Bildirimler")
+        .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+        .refreshable {
+            await viewModel.loadNotifications()
+        }
+        .task {
+            await viewModel.loadNotifications()
+            if viewModel.unreadCount > 0 {
+                await viewModel.markAllAsRead()
             }
         }
     }
@@ -49,34 +59,37 @@ struct NotificationRow: View {
         HStack(spacing: 12) {
             Image(systemName: notification.isRead ? "bell" : "bell.badge.fill")
                 .font(.title3)
-                .foregroundStyle(notification.isRead ? .secondary : Color(red: 0.2, green: 0.7, blue: 0.5))
+                .foregroundStyle(notification.isRead ? .white.opacity(0.5) : AppTheme.accent)
                 .frame(width: 32)
 
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
                     Text(notification.title)
                         .font(notification.isRead ? .subheadline : .subheadline.bold())
+                        .foregroundStyle(.white)
 
                     Spacer()
 
                     Text(formatDate(notification.createdAt))
                         .font(.caption2)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white.opacity(0.5))
                 }
 
                 Text(notification.content)
                     .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.white.opacity(0.6))
                     .lineLimit(2)
             }
 
             if !notification.isRead {
                 Circle()
-                    .fill(Color(red: 0.2, green: 0.7, blue: 0.5))
+                    .fill(AppTheme.accent)
                     .frame(width: 8, height: 8)
+                    .shadow(color: AppTheme.accent.opacity(0.6), radius: 4)
             }
         }
-        .padding(.vertical, 4)
+        .padding()
+        .glassCard()
     }
 
     private func formatDate(_ isoString: String) -> String {

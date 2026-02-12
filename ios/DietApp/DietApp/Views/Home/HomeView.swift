@@ -7,40 +7,61 @@ struct HomeView: View {
     @State private var notificationsVM = NotificationsViewModel()
     @State private var showWeightSheet = false
 
+    private var greeting: String {
+        let hour = Calendar.current.component(.hour, from: Date())
+        let name = user.fullName.components(separatedBy: " ").first ?? user.fullName
+        switch hour {
+        case 6..<12: return "Günaydın, \(name)"
+        case 12..<18: return "İyi günler, \(name)"
+        case 18..<23: return "İyi akşamlar, \(name)"
+        default: return "İyi geceler, \(name)"
+        }
+    }
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 20) {
-                    // Öğün planı
+                    HStack {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(greeting)
+                                .font(.title2.bold())
+                                .foregroundStyle(.white)
+                            Text("Bugün nasıl hissediyorsun?")
+                                .font(.subheadline)
+                                .foregroundStyle(.white.opacity(0.7))
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+
                     MealListView(meals: viewModel.sortedMeals)
                         .padding(.horizontal)
 
-                    // Yaklaşan randevular
                     if !viewModel.upcomingAppointments.isEmpty {
                         upcomingAppointmentsCard
                             .padding(.horizontal)
                     }
 
-                    // Kilo gir butonu
                     weightEntryButton
                         .padding(.horizontal)
 
-                    // Kilo grafiği
                     WeightChartView(weightLogs: viewModel.weightLogs)
                         .padding(.horizontal)
                 }
                 .padding(.vertical)
             }
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle("Anasayfa")
+            .background(AppTheme.backgroundGradient.ignoresSafeArea())
+            .navigationTitle("")
+            .toolbarBackground(.hidden, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     NavigationLink {
                         ProfileDetailView(user: user, onLogout: onLogout)
                     } label: {
                         Image(systemName: "person.circle.fill")
-                            .font(.title3)
-                            .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                            .font(.system(size: 20))
+                            .foregroundStyle(.white.opacity(0.9))
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -49,8 +70,8 @@ struct HomeView: View {
                     } label: {
                         HStack(spacing: 2) {
                             Image(systemName: notificationsVM.unreadCount > 0 ? "bell.badge.fill" : "bell.fill")
-                                .font(.title3)
-                                .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                                .font(.system(size: 20))
+                                .foregroundStyle(.white.opacity(0.9))
                             if notificationsVM.unreadCount > 0 {
                                 Text("\(notificationsVM.unreadCount)")
                                     .font(.system(size: 12, weight: .bold))
@@ -65,7 +86,7 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showWeightSheet) {
                 WeightLogSheet { weight, note in
-                    Task { await viewModel.addWeight(weight: weight, note: note) }
+                    await viewModel.addWeight(weight: weight, note: note)
                 }
                 .presentationDetents([.medium])
             }
@@ -88,17 +109,17 @@ struct HomeView: View {
                     .font(.title3)
                     .foregroundStyle(.white)
                     .frame(width: 40, height: 40)
-                    .background(Color(red: 0.2, green: 0.7, blue: 0.5))
+                    .background(AppTheme.accent)
                     .clipShape(Circle())
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Bugünkü kilo girildi")
                         .font(.headline)
-                        .foregroundStyle(.primary)
+                        .foregroundStyle(.white)
                     if let weight = viewModel.currentWeight {
                         Text("\(weight, specifier: "%.1f") kg")
                             .font(.caption)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.white.opacity(0.7))
                     }
                 }
 
@@ -106,12 +127,10 @@ struct HomeView: View {
 
                 Image(systemName: "checkmark")
                     .font(.body.bold())
-                    .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                    .foregroundStyle(AppTheme.accent)
             }
             .padding()
-            .background(Color(.systemBackground))
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
+            .glassCard()
         } else {
             Button {
                 showWeightSheet = true
@@ -121,17 +140,17 @@ struct HomeView: View {
                         .font(.title3)
                         .foregroundStyle(.white)
                         .frame(width: 40, height: 40)
-                        .background(Color(red: 0.2, green: 0.7, blue: 0.5))
+                        .background(AppTheme.accent)
                         .clipShape(Circle())
 
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Kilo Gir")
                             .font(.headline)
-                            .foregroundStyle(.primary)
+                            .foregroundStyle(.white)
                         if let weight = viewModel.currentWeight {
                             Text("Güncel: \(weight, specifier: "%.1f") kg")
                                 .font(.caption)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(.white.opacity(0.7))
                         }
                     }
 
@@ -139,12 +158,10 @@ struct HomeView: View {
 
                     Image(systemName: "plus.circle.fill")
                         .font(.title2)
-                        .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                        .foregroundStyle(AppTheme.accent)
                 }
                 .padding()
-                .background(Color(.systemBackground))
-                .clipShape(RoundedRectangle(cornerRadius: 16))
-                .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
+                .glassCard()
             }
             .buttonStyle(.plain)
         }
@@ -154,7 +171,7 @@ struct HomeView: View {
         VStack(alignment: .leading, spacing: 12) {
             Label("Yaklaşan Randevular", systemImage: "calendar.badge.clock")
                 .font(.headline)
-                .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                .foregroundStyle(AppTheme.accent)
 
             ForEach(viewModel.upcomingAppointments) { appt in
                 HStack(spacing: 12) {
@@ -162,45 +179,44 @@ struct HomeView: View {
                         if let days = appt.daysUntil {
                             Text(days == 0 ? "Bugün" : "\(days)")
                                 .font(.title3.bold())
-                                .foregroundStyle(days == 0 ? .red : Color(red: 0.2, green: 0.7, blue: 0.5))
+                                .foregroundStyle(days == 0 ? .red : AppTheme.accent)
                             if days > 0 {
                                 Text("gün")
                                     .font(.caption2)
-                                    .foregroundStyle(.secondary)
+                                    .foregroundStyle(.white.opacity(0.6))
                             }
                         }
                     }
                     .frame(width: 48, height: 48)
                     .background(
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color(red: 0.2, green: 0.7, blue: 0.5).opacity(0.1))
+                            .fill(AppTheme.accent.opacity(0.15))
                     )
 
                     VStack(alignment: .leading, spacing: 4) {
                         Text(appt.title)
                             .font(.subheadline.bold())
+                            .foregroundStyle(.white)
                         Text(formatAppointmentDate(appt.dateTime))
                             .font(.caption)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.white.opacity(0.6))
                     }
 
                     Spacer()
 
                     Image(systemName: "chevron.right")
                         .font(.caption)
-                        .foregroundStyle(.tertiary)
+                        .foregroundStyle(.white.opacity(0.4))
                 }
                 .padding(.vertical, 4)
 
                 if appt.id != viewModel.upcomingAppointments.last?.id {
-                    Divider()
+                    Divider().overlay(.white.opacity(0.1))
                 }
             }
         }
         .padding()
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
+        .glassCard()
     }
 
     private func formatAppointmentDate(_ isoString: String) -> String {

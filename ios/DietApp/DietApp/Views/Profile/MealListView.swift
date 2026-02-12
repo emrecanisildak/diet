@@ -7,6 +7,7 @@ struct MealListView: View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Öğün Planı")
                 .font(.headline)
+                .foregroundStyle(.white)
                 .padding(.horizontal)
 
             if meals.isEmpty {
@@ -20,7 +21,7 @@ struct MealListView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(group.dayName)
                             .font(.subheadline.bold())
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.white.opacity(0.7))
                             .padding(.horizontal)
 
                         ForEach(group.meals) { meal in
@@ -31,9 +32,7 @@ struct MealListView: View {
             }
         }
         .padding(.vertical)
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .shadow(color: .black.opacity(0.05), radius: 8, y: 4)
+        .glassCard()
     }
 }
 
@@ -43,7 +42,6 @@ struct MealRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            // Header row
             HStack(spacing: 12) {
                 Image(systemName: mealIcon)
                     .font(.title3)
@@ -55,15 +53,16 @@ struct MealRow: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(meal.name)
                         .font(.subheadline.bold())
+                        .foregroundStyle(.white)
 
                     HStack(spacing: 4) {
                         Text(meal.mealTypeDisplay)
                             .font(.caption)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.white.opacity(0.6))
                         if !meal.items.isEmpty {
                             Text("· \(meal.items.count) besin")
                                 .font(.caption)
-                                .foregroundStyle(.tertiary)
+                                .foregroundStyle(.white.opacity(0.4))
                         }
                     }
                 }
@@ -73,17 +72,17 @@ struct MealRow: View {
                 if let cal = meal.totalCalories {
                     Text("\(cal) kcal")
                         .font(.caption.bold())
-                        .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                        .foregroundStyle(AppTheme.accent)
                         .padding(.horizontal, 10)
                         .padding(.vertical, 4)
-                        .background(Color(red: 0.2, green: 0.7, blue: 0.5).opacity(0.1))
+                        .background(AppTheme.accent.opacity(0.15))
                         .clipShape(Capsule())
                 }
 
                 if !meal.items.isEmpty {
                     Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white.opacity(0.6))
                 }
             }
             .padding(.horizontal)
@@ -97,14 +96,12 @@ struct MealRow: View {
                 }
             }
 
-            // Expanded food items
             if isExpanded && !meal.items.isEmpty {
                 VStack(alignment: .leading, spacing: 6) {
                     ForEach(meal.items.sorted(by: { $0.sortOrder < $1.sortOrder })) { item in
                         MealItemRow(item: item)
                     }
 
-                    // Totals
                     if let cal = meal.totalCalories {
                         HStack(spacing: 8) {
                             Text("Toplam:")
@@ -124,7 +121,7 @@ struct MealRow: View {
                                     .font(.caption2)
                             }
                         }
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white.opacity(0.6))
                         .padding(.top, 4)
                     }
                 }
@@ -163,7 +160,7 @@ struct MealItemRow: View {
     var body: some View {
         HStack(spacing: 8) {
             Circle()
-                .fill(Color.green.opacity(0.5))
+                .fill(AppTheme.accent.opacity(0.5))
                 .frame(width: 6, height: 6)
 
             VStack(alignment: .leading, spacing: 1) {
@@ -171,10 +168,11 @@ struct MealItemRow: View {
                     Text(item.name)
                         .font(.caption)
                         .fontWeight(.medium)
+                        .foregroundStyle(.white)
                     if let amount = item.amount, !amount.isEmpty {
                         Text("(\(amount))")
                             .font(.caption2)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(.white.opacity(0.6))
                     }
                 }
                 if item.calories != nil || item.protein != nil || item.carbs != nil || item.fat != nil {
@@ -193,7 +191,7 @@ struct MealItemRow: View {
                         }
                     }
                     .font(.caption2)
-                    .foregroundStyle(.tertiary)
+                    .foregroundStyle(.white.opacity(0.4))
                 }
             }
 

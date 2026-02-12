@@ -19,12 +19,12 @@ struct ContentView: View {
         .animation(.easeInOut(duration: 0.3), value: authViewModel.isAuthenticated)
         .onChange(of: authViewModel.isAuthenticated) { _, isAuth in
             if isAuth {
+                NotificationService.shared.requestPermissions()
                 NotificationService.shared.startPolling()
             }
         }
         .task {
             await authViewModel.checkSession()
-            NotificationService.shared.requestPermissions()
         }
     }
 }

@@ -14,9 +14,10 @@ struct WeightLog: Codable, Identifiable {
     }
 
     var loggedDate: Date? {
-        // Backend returns "2026-02-08T15:31:26.398268" (no timezone)
+        // Backend returns UTC time without timezone suffix: "2026-02-08T15:31:26.398268"
         let df = DateFormatter()
         df.locale = Locale(identifier: "en_US_POSIX")
+        df.timeZone = TimeZone(identifier: "UTC")
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
         if let date = df.date(from: loggedAt) { return date }
         df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"

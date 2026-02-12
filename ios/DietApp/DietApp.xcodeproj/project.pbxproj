@@ -39,6 +39,8 @@
 		A100001E /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001E; };
 		A100001F /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100001F; };
 		A1000020 /* CameraPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000020; };
+		A1000021 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000021; };
+		A1000022 /* ProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1000022; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		B100001E /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		B100001F /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		B1000020 /* CameraPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPicker.swift; sourceTree = "<group>"; };
+		B1000021 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B1000022 /* ProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailView.swift; sourceTree = "<group>"; };
 		C1000001 /* DietApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DietApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,6 +159,7 @@
 			children = (
 				B1000017 /* MainTabView.swift */,
 				E1000007 /* Auth */,
+				E100000B /* Home */,
 				E1000008 /* Profile */,
 				E1000009 /* Chat */,
 				E100000A /* Notifications */,
@@ -174,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				B1000011 /* ProfileView.swift */,
+				B1000022 /* ProfileDetailView.swift */,
 				B1000012 /* WeightChartView.swift */,
 				B1000013 /* WeightLogSheet.swift */,
 				B1000014 /* MealListView.swift */,
@@ -197,6 +203,14 @@
 				B100001E /* NotificationsView.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		E100000B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B1000021 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		E100000E /* Preview Content */ = {
@@ -316,6 +330,8 @@
 				A100001E /* NotificationsView.swift in Sources */,
 				A100001F /* Appointment.swift in Sources */,
 				A1000020 /* CameraPicker.swift in Sources */,
+				A1000021 /* HomeView.swift in Sources */,
+				A1000022 /* ProfileDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

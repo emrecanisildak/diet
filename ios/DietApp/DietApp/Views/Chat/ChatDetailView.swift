@@ -120,6 +120,9 @@ struct ChatDetailView: View {
             .padding(.horizontal)
             .padding(.vertical, 8)
         }
+        .onTapGesture {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
         .navigationTitle(otherUserName)
         .navigationBarTitleDisplayMode(.inline)
         .task {

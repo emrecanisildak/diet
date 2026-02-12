@@ -14,7 +14,7 @@ class NotificationService:
     def __init__(self):
         self.team_id = os.getenv("APNS_TEAM_ID")
         self.key_id = os.getenv("APNS_KEY_ID")
-        self.bundle_id = os.getenv("APNS_BUNDLE_ID", "com.dietapp.client")
+        self.bundle_id = os.getenv("APNS_BUNDLE_ID", "com.dietapp.ios")
         self.auth_key_path = os.getenv("APNS_AUTH_KEY_PATH", "cert/apns_key.p8")
         self.use_sandbox = os.getenv("APNS_USE_SANDBOX", "true").lower() == "true"
         

@@ -125,6 +125,19 @@ def mark_notification_read(
     return {"message": "Notification marked as read"}
 
 
+@router.post("/read-all")
+def mark_all_notifications_read(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    db.query(Notification).filter(
+        Notification.user_id == current_user.id,
+        Notification.is_read == False
+    ).update({"is_read": True})
+    db.commit()
+    return {"message": "All notifications marked as read"}
+
+
 @router.post("/register-token")
 def register_apns_token(
     token: str,

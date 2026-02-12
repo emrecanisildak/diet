@@ -13,6 +13,7 @@ from app.models.user import User
 from app.models.message import Message
 from app.schemas.message import MessageCreate, MessageResponse, ConversationResponse
 from app.utils.auth import decode_token
+from app.services.notification_service import notification_service
 
 router = APIRouter(prefix="/messages", tags=["messages"])
 
@@ -102,6 +103,16 @@ async def upload_image(
     return {"image_url": f"/uploads/messages/{filename}"}
 
 
+@router.get("/unread-count")
+def get_unread_count(current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    count = (
+        db.query(func.count(Message.id))
+        .filter(Message.receiver_id == current_user.id, Message.is_read == False)
+        .scalar()
+    )
+    return {"count": count or 0}
+
+
 @router.get("/{user_id}", response_model=list[MessageResponse])
 def get_messages(user_id: UUID, current_user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     messages = (
@@ -136,6 +147,15 @@ def send_message(msg_data: MessageCreate, current_user: User = Depends(get_curre
     db.add(message)
     db.commit()
     db.refresh(message)
+
+    # Send push notification to receiver
+    receiver = db.query(User).filter(User.id == msg_data.receiver_id).first()
+    if receiver and receiver.apns_token:
+        sender_name = current_user.full_name
+        body = msg_data.content if msg_data.content else "Yeni bir fotoğraf gönderdi"
+        notification_service.send_push_notification(
+            db, receiver, f"{sender_name}", f"{body}"
+        )
 
     # Send via WebSocket if receiver is online
     receiver_key = str(msg_data.receiver_id)
@@ -182,6 +202,16 @@ async def websocket_endpoint(websocket: WebSocket, token: str):
 
                 msg_response = MessageResponse.model_validate(message)
                 msg_json = msg_response.model_dump_json()
+
+                # Send push notification to receiver
+                receiver = db.query(User).filter(User.id == UUID(msg_data["receiver_id"])).first()
+                sender = db.query(User).filter(User.id == UUID(user_id)).first()
+                if receiver and receiver.apns_token:
+                    body = msg_data.get("content") or "Yeni bir fotoğraf gönderdi"
+                    sender_name = sender.full_name if sender else "Birisi"
+                    notification_service.send_push_notification(
+                        db, receiver, f"{sender_name}", f"{body}"
+                    )
 
                 # Send to sender
                 await websocket.send_text(msg_json)

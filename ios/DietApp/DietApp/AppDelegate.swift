@@ -58,7 +58,4 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         }
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        scheduleBackgroundFetch()
-    }
 }

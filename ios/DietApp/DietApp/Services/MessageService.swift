@@ -26,6 +26,11 @@ enum MessageService {
         )
     }
 
+    static func getUnreadCount() async throws -> Int {
+        let response: [String: Int] = try await APIClient.shared.request(path: "/messages/unread-count")
+        return response["count"] ?? 0
+    }
+
     static func uploadImage(data: Data, filename: String, mimeType: String) async throws -> UploadResponse {
         try await APIClient.shared.uploadMultipart(
             path: "/messages/upload",

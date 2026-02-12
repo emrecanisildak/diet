@@ -34,6 +34,9 @@ struct NotificationsView: View {
             }
             .task {
                 await viewModel.loadNotifications()
+                if viewModel.unreadCount > 0 {
+                    await viewModel.markAllAsRead()
+                }
             }
         }
     }

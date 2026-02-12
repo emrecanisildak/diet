@@ -4,6 +4,7 @@ struct HomeView: View {
     let user: User
     let onLogout: () -> Void
     @State private var viewModel = ProfileViewModel()
+    @State private var notificationsVM = NotificationsViewModel()
     @State private var showWeightSheet = false
 
     var body: some View {
@@ -42,6 +43,25 @@ struct HomeView: View {
                             .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        NotificationsView()
+                    } label: {
+                        HStack(spacing: 2) {
+                            Image(systemName: notificationsVM.unreadCount > 0 ? "bell.badge.fill" : "bell.fill")
+                                .font(.title3)
+                                .foregroundStyle(Color(red: 0.2, green: 0.7, blue: 0.5))
+                            if notificationsVM.unreadCount > 0 {
+                                Text("\(notificationsVM.unreadCount)")
+                                    .font(.system(size: 12, weight: .bold))
+                                    .foregroundStyle(.white)
+                                    .frame(minWidth: 20, minHeight: 20)
+                                    .background(Color.red)
+                                    .clipShape(Circle())
+                            }
+                        }
+                    }
+                }
             }
             .sheet(isPresented: $showWeightSheet) {
                 WeightLogSheet { weight, note in
@@ -51,9 +71,11 @@ struct HomeView: View {
             }
             .refreshable {
                 await viewModel.loadData()
+                await notificationsVM.loadNotifications()
             }
             .task {
                 await viewModel.loadData()
+                await notificationsVM.loadNotifications()
             }
         }
     }

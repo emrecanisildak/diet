@@ -25,6 +25,23 @@ final class NotificationsViewModel {
         isLoading = false
     }
 
+    func markAllAsRead() async {
+        do {
+            try await APIClient.shared.requestVoid(path: "/notifications/read-all", method: "POST")
+            for i in notifications.indices {
+                let n = notifications[i]
+                if !n.isRead {
+                    notifications[i] = AppNotification(
+                        id: n.id, userId: n.userId, title: n.title,
+                        content: n.content, isRead: true, createdAt: n.createdAt
+                    )
+                }
+            }
+        } catch {
+            errorMessage = "Bildirimler güncellenemedi"
+        }
+    }
+
     func markAsRead(_ id: UUID) async {
         do {
             try await APIClient.shared.requestVoid(path: "/notifications/\(id)/read", method: "POST")

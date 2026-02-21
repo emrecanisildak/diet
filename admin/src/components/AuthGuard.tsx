@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
 import Sidebar from "./Sidebar";
@@ -9,6 +9,7 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
   const { user, loading, logout } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     if (!loading && !user && pathname !== "/login") {
@@ -35,9 +36,9 @@ export default function AuthGuard({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="flex min-h-screen bg-[#f5f4ff]">
-      <Sidebar onLogout={logout} />
-      <main className="flex-1 overflow-auto">
-        <div className="p-8 max-w-7xl">
+      <Sidebar onLogout={logout} collapsed={collapsed} onToggle={() => setCollapsed(!collapsed)} />
+      <main className="flex-1 overflow-auto min-w-0">
+        <div className="p-8">
           {children}
         </div>
       </main>

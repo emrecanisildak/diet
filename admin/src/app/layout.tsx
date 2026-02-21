@@ -10,8 +10,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "DietApp - Diyetisyen Paneli",
-  description: "Diyetisyen yonetim paneli",
+  title: "Nutrivaldi - Diyetisyen Paneli",
+  description: "Nutrivaldi diyetisyen yonetim paneli",
 };
 
 export default function RootLayout({

@@ -21,11 +21,7 @@ enum APIError: Error, LocalizedError {
 actor APIClient {
     static let shared = APIClient()
 
-    #if targetEnvironment(simulator)
-    private let baseURL = "http://127.0.0.1:8000/api"
-    #else
-    private let baseURL = "http://192.168.1.100:8000/api"  // LAN IP - cihazda test için güncelle
-    #endif
+    private let baseURL = "https://api.nutrivaldi.com/api"
 
     private let decoder: JSONDecoder = {
         let d = JSONDecoder()

@@ -13,11 +13,7 @@ struct ChatDetailView: View {
     @State private var showGalleryAlert = false
     @State private var showPhotoPicker = false
 
-    #if targetEnvironment(simulator)
-    private let baseURL: String = "http://127.0.0.1:8000"
-    #else
-    private let baseURL: String = "http://192.168.1.100:8000"
-    #endif
+    private let baseURL: String = "https://api.nutrivaldi.com"
 
     var body: some View {
         VStack(spacing: 0) {

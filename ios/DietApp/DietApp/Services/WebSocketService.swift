@@ -6,11 +6,7 @@ final class WebSocketService {
     private var isConnected = false
     var onMessageReceived: ((Message) -> Void)?
 
-    #if targetEnvironment(simulator)
-    private let wsBaseURL = "ws://127.0.0.1:8000/api/messages/ws"
-    #else
-    private let wsBaseURL = "ws://192.168.1.100:8000/api/messages/ws"
-    #endif
+    private let wsBaseURL = "wss://api.nutrivaldi.com/api/messages/ws"
 
     func connect() {
         guard let token = KeychainHelper.read(key: "access_token"),

@@ -7,27 +7,25 @@ interface CardProps {
   hover?: boolean;
 }
 
-export function Card({ 
-  children, 
-  className = "", 
+export function Card({
+  children,
+  className = "",
   variant = "default",
-  hover = false 
+  hover = false
 }: CardProps) {
-  const baseStyles = "rounded-xl transition-all duration-200";
-  
   const variantStyles = {
-    default: "bg-white border border-gray-100 shadow-sm",
-    elevated: "bg-white border border-gray-100 shadow-lg",
+    default: "bg-white border border-violet-100/60 shadow-sm shadow-violet-100/50",
+    elevated: "bg-white border border-violet-100/60 shadow-lg shadow-violet-100/50",
     flat: "bg-white border border-gray-200",
-    gradient: "bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 shadow-sm"
+    gradient: "bg-gradient-to-br from-violet-50 to-indigo-50 border border-violet-100 shadow-sm"
   };
-  
-  const hoverStyles = hover 
-    ? "hover:shadow-md hover:-translate-y-0.5 cursor-pointer" 
+
+  const hoverStyles = hover
+    ? "hover:shadow-md hover:shadow-violet-100 hover:-translate-y-0.5 cursor-pointer"
     : "";
-  
+
   return (
-    <div className={`${baseStyles} ${variantStyles[variant]} ${hoverStyles} ${className}`}>
+    <div className={`rounded-2xl transition-all duration-200 ${variantStyles[variant]} ${hoverStyles} ${className}`}>
       {children}
     </div>
   );

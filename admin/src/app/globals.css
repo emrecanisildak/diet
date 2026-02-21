@@ -1,33 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  /* Background & Foreground */
-  --background: #f8fafc;
+  --background: #f5f4ff;
   --foreground: #0f172a;
-  
-  /* Brand Colors - Nutrivaldi Purple/Violet Theme */
+
   --primary: #7c3aed;
   --primary-dark: #6d28d9;
   --primary-light: #a78bfa;
 
-  /* Gradients */
   --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
   --gradient-subtle: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
-  
-  /* Shadows */
+
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-primary: 0 10px 15px -3px rgba(124, 58, 237, 0.3);
-  
-  /* Border Radius */
+
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
-  
-  /* Transitions */
+
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -49,32 +43,23 @@ body {
 
 /* Animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
 /* Form elements */
@@ -82,8 +67,8 @@ input,
 select,
 textarea {
   color: #0f172a;
-  background-color: #f8fafc;
-  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  border: 1.5px solid #e2e8f0;
   border-radius: var(--radius-md);
   transition: all var(--transition-base);
 }
@@ -99,7 +84,7 @@ textarea:focus {
   outline: none;
   background-color: #ffffff;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
 }
 
 input:disabled,
@@ -110,41 +95,26 @@ textarea:disabled {
 }
 
 /* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c4b5fd; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #a78bfa; }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-  transition: background var(--transition-base);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Selection */
 ::selection {
-  background-color: rgba(124, 58, 237, 0.2);
+  background-color: rgba(124, 58, 237, 0.15);
   color: var(--foreground);
 }
 
-/* Utility Classes */
-.animate-fade-in {
-  animation: fadeIn var(--transition-base) ease-in;
-}
+/* Utility classes */
+.animate-fade-in { animation: fadeIn 250ms ease-out both; }
+.animate-slide-up { animation: slideUp 300ms ease-out both; }
+.animate-scale-in { animation: scaleIn 200ms ease-out both; }
+.animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 
-.animate-slide-up {
-  animation: slideUp var(--transition-base) ease-out;
+/* Page header gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-
-.animate-pulse {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
